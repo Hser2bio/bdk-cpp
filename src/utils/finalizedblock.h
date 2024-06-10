@@ -120,7 +120,7 @@ class FinalizedBlock {
     {LOGTRACE("Finalized block copied");}
 
 
-    static FinalizedBlock fromBytes(const BytesArrView bytes, const uint64_t& requiredChainId);
+    static FinalizedBlock fromBytes(const bytes::View bytes, const uint64_t& requiredChainId);
 
     Bytes serializeBlock() const;
 
