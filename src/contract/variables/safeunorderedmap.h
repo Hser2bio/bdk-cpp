@@ -9,10 +9,9 @@ See the LICENSE.txt file in the project root for more information.
 #define SAFEUNORDEREDMAP_H
 
 #include <memory>
-#include <unordered_map>
 #include <unordered_set>
-
 #include "../../utils/safehash.h"
+#include "../../libs/unordered_dense.h"
 #include "safebase.h"
 
 /**

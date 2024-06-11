@@ -16,6 +16,7 @@ See the LICENSE.txt file in the project root for more information.
 #include "../../utils/tx.h"
 #include "../../utils/finalizedblock.h"
 #include "../../utils/options.h"
+#include "../../libs/unordered_dense.h"
 
 namespace P2P {
   // Forward declarations.
@@ -257,7 +258,7 @@ namespace P2P {
        */
       static Message info(
         const std::shared_ptr<const FinalizedBlock>& latestBlock,
-        const std::unordered_map<NodeID, NodeType, SafeHash>& nodes,
+        const ankerl::unordered_dense::map<NodeID, NodeType, SafeHash>& nodes,
         const Options& options
       );
 
@@ -359,7 +360,7 @@ namespace P2P {
       static Message info(
         const Message& request,
         const std::shared_ptr<const FinalizedBlock>& latestBlock,
-        const std::unordered_map<NodeID, NodeType, SafeHash>& nodes,
+        const ankerl::unordered_dense::map<NodeID, NodeType, SafeHash>& nodes,
         const Options& options
       );
 
@@ -370,7 +371,7 @@ namespace P2P {
        * @return The formatted answer.
        */
       static Message requestNodes(const Message& request,
-        const std::unordered_map<NodeID, NodeType, SafeHash>& nodes
+        const ankerl::unordered_dense::map<NodeID, NodeType, SafeHash>& nodes
       );
 
       /**
@@ -380,7 +381,7 @@ namespace P2P {
        * @return The formatted answer.
        */
       static Message requestValidatorTxs(const Message& request,
-        const std::unordered_map<Hash, TxValidator, SafeHash>& txs
+        const ankerl::unordered_dense::map<Hash, TxValidator, SafeHash>& txs
       );
 
       /**
@@ -426,7 +427,7 @@ namespace P2P {
        * @param message The answer to parse.
        * @return A list of requested nodes.
        */
-      static std::unordered_map<
+      static ankerl::unordered_dense::map<
         NodeID, NodeType, SafeHash
       > requestNodes(const Message& message);
 
@@ -526,7 +527,7 @@ namespace P2P {
        */
       static Message notifyInfo(
         const std::shared_ptr<const FinalizedBlock>& latestBlock,
-        const std::unordered_map<NodeID, NodeType, SafeHash>& nodes,
+        const ankerl::unordered_dense::map<NodeID, NodeType, SafeHash>& nodes,
         const Options& options
       );
   };
